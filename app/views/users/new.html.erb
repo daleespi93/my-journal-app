@@ -1,0 +1,15 @@
+<h1> ETITS </h1>
+<%= form_with model: @user, local: true do |form| %>
+  <%= form.label :email_address %> <br/>
+  <%= form.text_field :email_address, class: "border-2" %> <br/>
+  <%= form.label :password %> <br/>
+  <%= form.text_field :password, class: "border-2" %><br/>
+  <%= form.label :password_confirmation %> <br/>
+  <%= form.text_field :password_confirmation, class: "border-2" %>
+  <p>
+    <%= form.submit "Register" %>
+  </p>
+  <p>
+    <%= link_to 'Back', new_session_path, class: "border border-2" %>
+  </p>
+<% end %>

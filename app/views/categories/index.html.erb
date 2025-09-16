@@ -1,8 +1,10 @@
-<% @categories.each do |category| %>
-<tr>
-  <td> <%= category.id %> </td>
-  <td> <%= category.title %> </td>
-  <td> <%= link_to 'Show', category_path(category.id) %> </td>
-</tr>
-<% end %>
+<thead>
+  <tr>
+    <th> Category </th>
+  </tr>
+</thead>
+ <br/>
+<tbody>
+  <%= render "categories" %>
+</tbody>
 <th><%= link_to 'New Category', new_category_path %> </th>

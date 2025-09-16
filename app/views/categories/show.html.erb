@@ -2,4 +2,27 @@
   <td><%= @category.id %> </td>
   <td><%= @category.title %> </td>
 </tr>
-<h1> ETITS </h1>
+<div>
+    <h2>Tasks</h2>
+      <% @tasks.each do |task| %>
+        <div>
+          <p> <%= task.title %> </p>
+          <td> <%= link_to 'Edit', edit_category_task_path(@category, task) %> </td>
+          <td> <%= button_to 'Delete', category_task_path(@category, task), method: :delete %> </td>
+        </div>
+      <% end %>
+
+
+      <h3>Add a task:</h3>
+      <%= form_with(model: [@category, Task.new], local: true) do |form| %>
+          <%= form.text_field :title %>
+        </p>
+        <p>
+          <%= form.submit "Add task" %>
+        </p>
+        <p>
+          <%= link_to 'Back', categories_path %>
+        </p>
+      <% end %>
+  </div>
+</div>
