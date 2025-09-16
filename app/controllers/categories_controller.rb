@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Current.user.categories
+    puts Current.inspect
   end
   def show
     @category = Current.user.categories.find(params[:id])

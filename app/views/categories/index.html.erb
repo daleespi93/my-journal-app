@@ -1,3 +1,4 @@
+<div class="flex flex-col gap-2 w-screen h-[80vh] justify-center items-center">
 <thead>
   <tr>
     <th> Category </th>
@@ -7,4 +8,7 @@
 <tbody>
   <%= render "categories" %>
 </tbody>
-<th><%= link_to 'New Category', new_category_path %> </th>
+<th><%= link_to 'New Category', new_category_path, class:"m-1 p-1 bg-[#E35336] rounded-lg" %> </th>
+<%= button_to 'Log out', session_path, method: :delete, class: "m-1 p-1 bg-[#E35336] rounded-lg" %>
+</div>
+

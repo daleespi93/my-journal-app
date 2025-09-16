@@ -1,12 +1,17 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+<div class="flex flex-col w-screen h-[80vh] justify-center items-center">
+  <h1 class="text-4xl font-[Roboto] font-bold"> Frieren: Beyond Journal's End </h1><br/><br/><br/>
+    <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+    <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
 
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  <%= form.submit "Sign in" %>
-<% end %>
-<br>
+    <%= form_with url: session_path do |form| %>
+    <div class="flex flex-col justify-center items-center">
+      <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], class: "p-1 border-2 w-100 rounded-md text-center" %><br>
+      <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 36, class: "p-1 border-2 w-100 rounded-md text-center" %><br>
+      <%= form.submit "Sign in", class: "p-1 bg-[#E35336] rounded-xl" %>
+    <% end %>
+    <br>
+  </div>
 
-<%= link_to "Sign up", new_user_path%>
-<%= link_to "Forgot password?", new_password_path %>
+  <%= link_to "Sign up", new_user_path %>
+  <%= link_to "Forgot password?", new_password_path %>
+</div>

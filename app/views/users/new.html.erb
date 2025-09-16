@@ -1,15 +1,16 @@
-<h1> ETITS </h1>
-<%= form_with model: @user, local: true do |form| %>
-  <%= form.label :email_address %> <br/>
-  <%= form.text_field :email_address, class: "border-2" %> <br/>
-  <%= form.label :password %> <br/>
-  <%= form.text_field :password, class: "border-2" %><br/>
-  <%= form.label :password_confirmation %> <br/>
-  <%= form.text_field :password_confirmation, class: "border-2" %>
-  <p>
-    <%= form.submit "Register" %>
-  </p>
-  <p>
-    <%= link_to 'Back', new_session_path, class: "border border-2" %>
-  </p>
-<% end %>
+<div class="flex flex-col w-screen h-[80vh] justify-center items-center">
+  <h1 class="
+  text-2xl font-bold"> Sign up </h1> <br/>
+  <%= form_with model: @user, local: true do |form| %>
+  <div class="flex flex-col justify-center items-center gap-0">
+    <%= form.label :email_address %>
+    <%= form.text_field :email_address, class: "p-1 border-2 rounded-md" %> 
+    <%= form.label :password %>
+    <%= form.password_field :password, class: "p-1 border-2 rounded-md" %>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: "p-1 border-2 rounded-md" %><br/>
+    <%= form.submit "Register", class: "m-1 p-1 bg-[#E35336] rounded-xl"%>
+    <%= link_to 'Back', new_session_path, class: "p-1 bg-[#E35336] rounded-xl" %>
+  </div>
+  <% end %>
+</div>

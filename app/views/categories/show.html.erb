@@ -1,28 +1,36 @@
-<tr>
-  <td><%= @category.id %> </td>
-  <td><%= @category.title %> </td>
-</tr>
-<div>
-    <h2>Tasks</h2>
-      <% @tasks.each do |task| %>
-        <div>
-          <p> <%= task.title %> </p>
-          <td> <%= link_to 'Edit', edit_category_task_path(@category, task) %> </td>
-          <td> <%= button_to 'Delete', category_task_path(@category, task), method: :delete %> </td>
-        </div>
-      <% end %>
+<div class="flex flex-col gap-2 w-screen h-[80vh] justify-center items-center">
 
+  <h1 class="font-bold"><%= @category.title %></h1>
 
-      <h3>Add a task:</h3>
-      <%= form_with(model: [@category, Task.new], local: true) do |form| %>
-          <%= form.text_field :title %>
-        </p>
-        <p>
-          <%= form.submit "Add task" %>
-        </p>
-        <p>
-          <%= link_to 'Back', categories_path %>
-        </p>
-      <% end %>
+  <div>
+    <h2 class="text-center">Tasks:</h2><br/>
+
+    <% @tasks.each do |task| %>
+      <div id="task_<%= task.id %>" class="flex justify-center items-center gap-2 p-2 rounded">
+        <p><%= task.title %></p>
+
+        <%= link_to '✏️', edit_category_task_path(@category, task), class: "px-2" %>
+        <%= button_to '🗑', category_task_path(@category, task), method: :delete, class: "px-2" %>
+
+        <button 
+          type="button" 
+          class="px-2 py-1 rounded" 
+          onclick="highlightTask(<%= task.id %>)">
+          ⭐ Highlight
+        </button>
+      </div>
+    <% end %><br/>
+
+    <h3 class="text-center">Add a task:</h3>
+    <%= form_with(model: [@category, Task.new], local: true) do |form| %>
+      <%= form.text_field :title, class: "w-full p-1 border-2 rounded-lg" %><br/>
+      <p>
+        <%= form.submit "Add task", class: "m-1 p-1 bg-[#E35336] rounded-xl" %>
+      </p>
+      <p>
+        <%= link_to 'Back', categories_path %>
+      </p>
+    <% end %>
   </div>
 </div>
+≈

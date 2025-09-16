@@ -1,8 +1,10 @@
 <% @categories.each do |category|%>
 <tr>
-  <td> <%= category.title %> </td>
-  <td> <%= link_to 'Show', category_path(category.id) %> </td>
-  <td> <%= link_to 'Edit', edit_category_path(category.id) %> </td>
-  <td> <%= button_to 'Delete', category_path(category.id), method: :delete %> </td>
+  <div class="flex justify-center items-center gap-2">
+    <td> <%= content_tag(:span, category.title, class: "font-semibold") %> </td>
+    <td> <%= link_to '👀', category_path(category.id) %> </td>
+    <td> <%= link_to '✏️', edit_category_path(category.id) %> </td>
+    <td> <%= button_to '🗑', category_path(category.id), method: :delete %> </td>
+  </div>
 </tr>
 <% end %>
