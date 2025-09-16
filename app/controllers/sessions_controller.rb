@@ -6,13 +6,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-  user = User.find_by(email_address: params[:email_address])
-  if user.authenticate(params[:password])
-    start_new_session_for(user)
-    redirect_to categories_path
-  else
-    redirect_to new_session_path, alert: "Try another email address or password."
-  end
+    user = User.find_by(email_address: params[:email_address])
+    if user&.authenticate(params[:password])
+      start_new_session_for(user)
+      redirect_to categories_path
+    else
+      redirect_to new_session_path, alert: "Try another email address or password."
+    end
   end
 
   def destroy
